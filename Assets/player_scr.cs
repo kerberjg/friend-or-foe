@@ -39,28 +39,41 @@ public class player_scr : MonoBehaviour
     {
         if (curCharacter == Character.MOVING)
         {
-            Vector3 direction = new Vector3(0.0f, 0.0f, 0.0f);
+            Vector3 switchDirection = -charactersTrans[1].localPosition;
+
+            if (charactersTrans[1].position.x < -0.01f ||
+                charactersTrans[1].position.x > 0.01f ||
+                charactersTrans[1].position.y < -0.01f ||
+                charactersTrans[1].position.y > 0.01f)
+            {
+                if (switchDirection.magnitude > (switchDirection.normalized * switchSpeed).magnitude)
+                    charactersTrans[1].Translate(switchDirection.normalized * switchSpeed);
+                else
+                    charactersTrans[1].Translate(switchDirection);
+            }
+
+            Vector3 moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
 
             if (Input.GetKey(up_k))
             {
-                direction.y += 1.0f;
+                moveDirection.y += 1.0f;
             }
             if (Input.GetKey(down_k))
             {
-                direction.y -= 1.0f;
+                moveDirection.y -= 1.0f;
             }
             if (Input.GetKey(left_k))
             {
-                direction.x -= 1.0f;
+                moveDirection.x -= 1.0f;
             }
             if (Input.GetKey(right_k))
             {
-                direction.x += 1.0f;
+                moveDirection.x += 1.0f;
             }
-            direction.Normalize();
+            moveDirection.Normalize();
 
-            charactersTrans[0].Translate(direction * speed);
-            charactersTrans[2].Translate(-direction * speed);
+            charactersTrans[0].Translate(moveDirection * speed);
+            charactersTrans[2].Translate(-moveDirection * speed);
 
             if (charactersTrans[2].position.x < charactersTrans[1].position.x - 0.51f ||
                 charactersTrans[2].position.x > charactersTrans[1].position.x - 0.49f ||
@@ -76,20 +89,43 @@ public class player_scr : MonoBehaviour
 
             if (curMoveDelay >= moveDelay)
             {
-                Vector3 direction2 = charactersTrans[1].position;
-                direction2.x -= 0.5f;
-                direction2.y += 0.2f;
-                direction2 -= charactersTrans[2].position;
+                Vector3 moveDirection2 = charactersTrans[1].position;
+                moveDirection2.x -= 0.5f;
+                moveDirection2.y += 0.2f;
+                moveDirection2 -= charactersTrans[2].position;
 
-                if (direction2.magnitude > (direction2.normalized * speed).magnitude)
-                    charactersTrans[2].Translate(direction2.normalized * speed);
+                if (moveDirection2.magnitude > (moveDirection2.normalized * speed).magnitude)
+                    charactersTrans[2].Translate(moveDirection2.normalized * speed);
                 else
-                    charactersTrans[2].Translate(direction2);
+                    charactersTrans[2].Translate(moveDirection2);
             }
         }
         else if (curCharacter == Character.SEEING)
         {
+            Vector3 direction = new Vector3(-0.5f, 0.2f, 0.0f) - charactersTrans[1].localPosition;
+            Vector3 direction2 = -charactersTrans[2].localPosition;
 
+            if (charactersTrans[1].position.x < -0.51f ||
+                charactersTrans[1].position.x > -0.49f ||
+                charactersTrans[1].position.y < 0.19f ||
+                charactersTrans[1].position.y > 0.21f)
+            {
+                if (direction.magnitude > (direction.normalized * switchSpeed).magnitude)
+                    charactersTrans[1].Translate(direction.normalized * switchSpeed);
+                else
+                    charactersTrans[1].Translate(direction);
+            }
+
+            if (charactersTrans[2].position.x < -0.01f ||
+                charactersTrans[2].position.x > 0.01f ||
+                charactersTrans[2].position.y < -0.01f ||
+                charactersTrans[2].position.y > 0.01f)
+            {
+                if (direction2.magnitude > (direction2.normalized * switchSpeed).magnitude)
+                    charactersTrans[2].Translate(direction2.normalized * switchSpeed);
+                else
+                    charactersTrans[2].Translate(direction2);
+            }
         }
 
         if (Input.GetKeyDown(switchChar_k))
