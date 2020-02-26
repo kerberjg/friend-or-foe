@@ -51,11 +51,11 @@ public class CorridorScroller : MonoBehaviour
 
             corridorPrev = corridorCurrent;
             corridorCurrent = corridorNext;
-            corridorNext = LoadNext();
+            corridorNext = LoadNext(corridorCurrent.transform.position.x);
         }
     }
 
-    GameObject LoadNext() {
+    GameObject LoadNext(float offset = 0f) {
         int index;
         float difficulty;
         if(random) {
@@ -66,7 +66,7 @@ public class CorridorScroller : MonoBehaviour
             difficulty = index / corridorPrefabs.Length;
         }
 
-        GameObject segment = Instantiate(corridorPrefabs[index], new Vector3(elementLength, 0f, 0f), Quaternion.identity, this.transform);
+        GameObject segment = Instantiate(corridorPrefabs[index], new Vector3(offset + elementLength, 0f, 0f), Quaternion.identity, this.transform);
         if(EnemySpawner.instance) EnemySpawner.instance.FillSegment(gameObject, difficulty);
         return segment;
     }
