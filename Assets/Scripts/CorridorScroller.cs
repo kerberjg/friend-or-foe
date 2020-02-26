@@ -57,12 +57,17 @@ public class CorridorScroller : MonoBehaviour
 
     GameObject LoadNext() {
         int index;
+        float difficulty;
         if(random) {
             index = Random.Range(0, corridorPrefabs.Length);
+            difficulty = 0.5f;  // TODO: make this settable from a GameManager
         } else {
             index = elementIndex++ % corridorPrefabs.Length;
+            difficulty = index / corridorPrefabs.Length;
         }
 
-        return Instantiate(corridorPrefabs[index], new Vector3(elementLength, 0f, 0f), Quaternion.identity, this.transform);
+        GameObject segment = Instantiate(corridorPrefabs[index], new Vector3(elementLength, 0f, 0f), Quaternion.identity, this.transform);
+        EnemySpawner.instance.FillSegment(gameObject, difficulty);
+        return segment;
     }
 }
