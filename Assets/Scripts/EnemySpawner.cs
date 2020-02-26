@@ -8,6 +8,17 @@ public class EnemySpawner : MonoBehaviour
     public int minCount;
     public int maxCount;
 
+
+    // singleton
+    public static EnemySpawner instance;
+    void OnEnable() {
+        instance = this;
+    }
+    
+    void OnDisable() {
+        instance = null;
+    }
+
     void Start()
     {
         
