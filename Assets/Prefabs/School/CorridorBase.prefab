@@ -63,7 +63,7 @@ ReflectionProbe:
   m_RenderDynamicObjects: 0
   m_UseOcclusionCulling: 1
   m_Importance: 1
-  m_CustomBakedTexture: {fileID: 8900000, guid: ed24afdf838af4435ae019bf7b5467b9,
+  m_CustomBakedTexture: {fileID: 8900000, guid: 349fcab6621f5413aadb0820d241f68c,
     type: 3}
 --- !u!1 &1861986323268959346
 GameObject:
@@ -189,7 +189,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 3
+  m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -294,13 +294,13 @@ MonoBehaviour:
     lightmapOffsetScale: {x: 1, y: 1, z: 0, w: 0}
   - renderer: {fileID: 1665210516819338251}
     lightmapIndex: 4
-    lightmapOffsetScale: {x: 0.54308003, y: 0.54308003, z: -0.0022026058, w: -0.0022026058}
+    lightmapOffsetScale: {x: 0.43288988, y: 0.43288988, z: -0.0017557002, w: 0.4982443}
   m_Lightmaps:
-  - {fileID: 2800000, guid: 565a3d30a652f460e8c9285885811ee4, type: 3}
-  - {fileID: 2800000, guid: 63f75aab33d4e4cc1b21ffc51e5cdbaf, type: 3}
-  - {fileID: 2800000, guid: b35bd0d2ab9c14c2ba50fc1397536e92, type: 3}
-  - {fileID: 2800000, guid: ae4a1076ea0964cc2ab1f9c2634f7812, type: 3}
-  - {fileID: 2800000, guid: 455d082cfce154d468620eef91023e0a, type: 3}
+  - {fileID: 2800000, guid: 89cbaefeafabd4a2a9faecfe1441614d, type: 3}
+  - {fileID: 2800000, guid: a7a31c1b695ef47e49883fdadd3a544e, type: 3}
+  - {fileID: 2800000, guid: d0e326857edcc4255bee2c52887d9ab6, type: 3}
+  - {fileID: 2800000, guid: f5f70604f4cab4006bd612297864e28a, type: 3}
+  - {fileID: 2800000, guid: 04d53b8900b8342b89caffa083301caf, type: 3}
 --- !u!1 &6155917929216205229
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +590,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 593596974554198720}
     m_Modifications:
+    - target: {fileID: 1410435341283192887, guid: fa6c6bc1ad3bd4db58f5910879a53ed1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410435341283192887, guid: fa6c6bc1ad3bd4db58f5910879a53ed1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410435341283192887, guid: fa6c6bc1ad3bd4db58f5910879a53ed1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 1410435341461890441, guid: fa6c6bc1ad3bd4db58f5910879a53ed1,
         type: 3}
       propertyPath: m_Name
