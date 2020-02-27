@@ -67,7 +67,14 @@ public class CorridorScroller : MonoBehaviour
         }
 
         GameObject segment = Instantiate(corridorPrefabs[index], new Vector3(elementLength, 0f, 0f), Quaternion.identity, this.transform);
-        if(EnemySpawner.instance) EnemySpawner.instance.FillSegment(gameObject, difficulty);
+        if (WaveSpawner.Instance != null)
+        {
+            WaveSpawner.Instance.FillSegment(segment, difficulty);
+        }
+        else
+        {
+            Debug.Log("EnemySpawner is null");
+        }
         return segment;
     }
 }
