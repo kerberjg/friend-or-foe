@@ -10,6 +10,14 @@ public class player_scr : MonoBehaviour
         SEEING
     }
 
+    struct Stopwatch
+    {
+        bool delayStart;
+        bool delayStop;
+        float startTime;
+        float stopTime;
+    }
+
     public KeyCode up_k = KeyCode.UpArrow;
     public KeyCode down_k = KeyCode.DownArrow;
     public KeyCode left_k = KeyCode.LeftArrow;
@@ -28,6 +36,15 @@ public class player_scr : MonoBehaviour
     Transform[] charactersTrans;
     float curMoveDelay = 0.0f;
 
+    bool pressedUp = false;
+    bool pressedDown = false;
+    bool pressedLeft = false;
+    bool pressedRight = false;
+    bool releasedUp = false;
+    bool releasedDown = false;
+    bool releasedLeft = false;
+    bool releasedRight = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +60,8 @@ public class player_scr : MonoBehaviour
 
             if (charactersTrans[1].position.x < -0.01f ||
                 charactersTrans[1].position.x > 0.01f ||
-                charactersTrans[1].position.y < -0.01f ||
-                charactersTrans[1].position.y > 0.01f)
+                charactersTrans[1].position.z < -0.01f ||
+                charactersTrans[1].position.z > 0.01f)
             {
                 if (switchDirection.magnitude > (switchDirection.normalized * switchSpeed).magnitude)
                     charactersTrans[1].Translate(switchDirection.normalized * switchSpeed);
@@ -56,11 +73,11 @@ public class player_scr : MonoBehaviour
 
             if (Input.GetKey(up_k))
             {
-                moveDirection.y += 1.0f;
+                moveDirection.z += 1.0f;
             }
             if (Input.GetKey(down_k))
             {
-                moveDirection.y -= 1.0f;
+                moveDirection.z -= 1.0f;
             }
             if (Input.GetKey(left_k))
             {
@@ -77,8 +94,8 @@ public class player_scr : MonoBehaviour
 
             if (charactersTrans[2].position.x < charactersTrans[1].position.x - 0.51f ||
                 charactersTrans[2].position.x > charactersTrans[1].position.x - 0.49f ||
-                charactersTrans[2].position.y < charactersTrans[1].position.y + 0.19f ||
-                charactersTrans[2].position.y > charactersTrans[1].position.y + 0.21f)
+                charactersTrans[2].position.z < charactersTrans[1].position.z + 0.19f ||
+                charactersTrans[2].position.z > charactersTrans[1].position.z + 0.21f)
             {
                 curMoveDelay += Time.deltaTime;
             }
@@ -91,7 +108,7 @@ public class player_scr : MonoBehaviour
             {
                 Vector3 moveDirection2 = charactersTrans[1].position;
                 moveDirection2.x -= 0.5f;
-                moveDirection2.y += 0.2f;
+                moveDirection2.z += 0.2f;
                 moveDirection2 -= charactersTrans[2].position;
 
                 if (moveDirection2.magnitude > (moveDirection2.normalized * speed).magnitude)
@@ -107,8 +124,8 @@ public class player_scr : MonoBehaviour
 
             if (charactersTrans[1].position.x < -0.51f ||
                 charactersTrans[1].position.x > -0.49f ||
-                charactersTrans[1].position.y < 0.19f ||
-                charactersTrans[1].position.y > 0.21f)
+                charactersTrans[1].position.z < 0.19f ||
+                charactersTrans[1].position.z > 0.21f)
             {
                 if (direction.magnitude > (direction.normalized * switchSpeed).magnitude)
                     charactersTrans[1].Translate(direction.normalized * switchSpeed);
@@ -118,8 +135,8 @@ public class player_scr : MonoBehaviour
 
             if (charactersTrans[2].position.x < -0.01f ||
                 charactersTrans[2].position.x > 0.01f ||
-                charactersTrans[2].position.y < -0.01f ||
-                charactersTrans[2].position.y > 0.01f)
+                charactersTrans[2].position.z < -0.01f ||
+                charactersTrans[2].position.z > 0.01f)
             {
                 if (direction2.magnitude > (direction2.normalized * switchSpeed).magnitude)
                     charactersTrans[2].Translate(direction2.normalized * switchSpeed);
