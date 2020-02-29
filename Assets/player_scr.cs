@@ -32,11 +32,15 @@ public class player_scr : MonoBehaviour
     public KeyCode highFive_k = KeyCode.X;
 
     [Min(0.0f)]
-    public float speed = 1.0f;
+    public float speed = 0.03f;
     [Min(0.0f)]
-    public float switchSpeed = 1.0f;
+    public float switchSpeed = 0.03f;
     [Min(0.0f)]
-    public float moveDelay = 0.5f;
+    public float moveDelay = 0.3f;
+    public float xMin = -7.0f;
+    public float xMax = -2.0f;
+    public float zMin = -2.0f;
+    public float zMax = 2.0f;
 
     Character curCharacter = Character.MOVING;
     Transform[] charactersTrans;
@@ -178,6 +182,35 @@ public class player_scr : MonoBehaviour
                 charactersTrans[0].Translate(moveDirection * speed);
                 charactersTrans[2].Translate(-moveDirection * speed);
 
+                if (charactersTrans[0].position.x < xMin)
+                {
+                    Vector3 newPos = charactersTrans[0].position;
+                    newPos.x = xMin;
+                    charactersTrans[0].position = newPos;
+                    charactersTrans[2].Translate(moveDirection.x * speed, 0.0f, 0.0f);
+                }
+                else if (charactersTrans[0].position.x > xMax)
+                {
+                    Vector3 newPos = charactersTrans[0].position;
+                    newPos.x = xMax;
+                    charactersTrans[0].position = newPos;
+                    charactersTrans[2].Translate(moveDirection.x * speed, 0.0f, 0.0f);
+                }
+                if (charactersTrans[0].position.z < zMin)
+                {
+                    Vector3 newPos = charactersTrans[0].position;
+                    newPos.z = zMin;
+                    charactersTrans[0].position = newPos;
+                    charactersTrans[2].Translate(0.0f, 0.0f, moveDirection.z * speed);
+                }
+                else if (charactersTrans[0].position.z > zMax)
+                {
+                    Vector3 newPos = charactersTrans[0].position;
+                    newPos.z = zMax;
+                    charactersTrans[0].position = newPos;
+                    charactersTrans[2].Translate(0.0f, 0.0f, moveDirection.z * speed);
+                }
+
                 switch (delayDirections[0])
                 {
                     case DelayDirection.UP:
@@ -214,6 +247,31 @@ public class player_scr : MonoBehaviour
                 moveDirection2.Normalize();
 
                 charactersTrans[2].Translate(moveDirection2 * speed);
+
+                if (charactersTrans[2].position.x < xMin - 0.5f)
+                {
+                    Vector3 newPos = charactersTrans[2].position;
+                    newPos.x = xMin - 0.5f;
+                    charactersTrans[2].position = newPos;
+                }
+                else if (charactersTrans[2].position.x > xMax - 0.5f)
+                {
+                    Vector3 newPos = charactersTrans[2].position;
+                    newPos.x = xMax - 0.5f;
+                    charactersTrans[2].position = newPos;
+                }
+                if (charactersTrans[2].position.z < zMin + 0.2f)
+                {
+                    Vector3 newPos = charactersTrans[2].position;
+                    newPos.z = zMin + 0.2f;
+                    charactersTrans[2].position = newPos;
+                }
+                else if (charactersTrans[2].position.z > zMax + 0.2f)
+                {
+                    Vector3 newPos = charactersTrans[2].position;
+                    newPos.z = zMax + 0.2f;
+                    charactersTrans[2].position = newPos;
+                }
             }
         }
         else if (curCharacter == Character.SEEING)
