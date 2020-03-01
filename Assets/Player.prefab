@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4757514626232293451}
   - component: {fileID: 4757514626232293449}
+  - component: {fileID: 1705276692}
+  - component: {fileID: 1705276689}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -51,7 +53,45 @@ MonoBehaviour:
   right_k: 275
   switchChar_k: 122
   highFive_k: 120
-  speed: 0.05
+  speed: 0.03
+  switchSpeed: 0.03
+  moveDelay: 0.3
+  xMin: -7
+  xMax: -2
+  zMin: -2
+  zMax: 2
+  foeTag: Foe
+  friendTag: Friend
+--- !u!54 &1705276692
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757514626232293450}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &1705276689
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757514626232293450}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!1 &5362024409381534791
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5362024409381534791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.2, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4757514626232293451}

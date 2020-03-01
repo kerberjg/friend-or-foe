@@ -42,6 +42,9 @@ public class player_scr : MonoBehaviour
     public float zMin = -2.0f;
     public float zMax = 2.0f;
 
+    public string foeTag = "Foe";
+    public string friendTag = "Friend";
+
     Character curCharacter = Character.MOVING;
     Transform[] charactersTrans;
     float curMoveDelay = 0.0f;
@@ -324,6 +327,22 @@ public class player_scr : MonoBehaviour
                 curCharacter = Character.MOVING;
             }
             switchCharacter = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        {
+            if (other.gameObject.tag == foeTag)
+            {
+                // TEST CODE. CHANGE TO DAMAGE AND HIT ANIMATION
+                charactersTrans[1].gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f);
+            }
+            else if (other.gameObject.tag == friendTag)
+            {
+                // TEST CODE. CHANGE TO HI-FIVE ANIMATION
+                charactersTrans[1].gameObject.GetComponent<SpriteRenderer>().color = new Color(0.0f, 0.0f, 1.0f);
+            }
         }
     }
 }
