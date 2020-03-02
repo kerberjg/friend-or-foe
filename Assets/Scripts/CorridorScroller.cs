@@ -51,11 +51,11 @@ public class CorridorScroller : MonoBehaviour
 
             corridorPrev = corridorCurrent;
             corridorCurrent = corridorNext;
-            corridorNext = LoadNext();
+            corridorNext = LoadNext(corridorCurrent.transform.position.x);
         }
     }
 
-    GameObject LoadNext() {
+    GameObject LoadNext(float offset = 0f) {
         int index;
         float difficulty;
         if(random) {
