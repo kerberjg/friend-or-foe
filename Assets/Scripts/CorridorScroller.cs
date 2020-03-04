@@ -14,6 +14,7 @@ public class CorridorScroller : MonoBehaviour
     public bool random = false;
     public float elementLength = 10;
     public float scrollSpeed = 2f;
+    private float speedScale = 1f;
     public Vector3 scrollDir = Vector3.left;
     public float scrollPos = 0;
     public int elementIndex = 0;
@@ -35,23 +36,49 @@ public class CorridorScroller : MonoBehaviour
     void Update()
     {
         // scroll
-        float scrollDelta = scrollSpeed * Time.deltaTime;
+        float scrollDelta = scrollSpeed * speedScale * Time.deltaTime;
         scrollPos = scrollPos + scrollDelta;
 
         corridorPrev.transform.Translate(scrollDir * scrollDelta);
         corridorCurrent.transform.Translate(scrollDir * scrollDelta);
         corridorNext.transform.Translate(scrollDir * scrollDelta);
 
+        // check if finished scrolling
+        if (elementIndex > corridorPrefabs.Length)
+        {
+            // slow down level scrolling
+            speedScale = 1 - scrollPos / elementLength;
+            //speedScale = 1 - Mathf.Sqrt(speedScale);    // make the speed curve nicer to look at
+            //speedScale = Mathf.Pow(speedScale, 2);
+
+            // move the player towards the exit
+            GameObject door = GameObject.Find("ExitDoor");
+            GameObject player = GameObject.Find("Player");
+
+            if (player.transform.position.x < door.transform.position.x)
+            {
+                Vector3 dir = (door.transform.position - player.transform.position).normalized;
+                player.transform.Translate(dir * scrollSpeed * Time.deltaTime);
+            }
+            else {
+                Debug.Log("Player exit the level");
+                Application.Quit();
+            }
+        }
         // load & unload
-        if(scrollPos >= elementLength) {
-            scrollPos -= elementLength;
+        else
+        {
+            if (scrollPos >= elementLength)
+            {
+                scrollPos -= elementLength;
 
-            if(corridorPrev != null)
-                Destroy(corridorPrev);
+                if (corridorPrev != null)
+                    Destroy(corridorPrev);
 
-            corridorPrev = corridorCurrent;
-            corridorCurrent = corridorNext;
-            corridorNext = LoadNext(corridorCurrent.transform.position.x);
+                corridorPrev = corridorCurrent;
+                corridorCurrent = corridorNext;
+                corridorNext = LoadNext(corridorCurrent.transform.position.x);
+            }
         }
     }
 

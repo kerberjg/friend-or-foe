@@ -706,7 +706,7 @@ MonoBehaviour:
   corridorPrev: {fileID: 0}
   corridorCurrent: {fileID: 0}
   corridorNext: {fileID: 0}
-  random: 1
+  random: 0
   elementLength: 10
   scrollSpeed: 5
   scrollDir: {x: -1, y: 0, z: 0}
