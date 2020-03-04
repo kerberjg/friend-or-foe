@@ -308,27 +308,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Characters_SpriteSheet_9
-      rect:
-        serializedVersion: 2
-        x: 825
-        y: 1645
-        width: 13
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a751dd5dd9719f00800000000000000
-      internalID: 1121811773860698016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Characters_SpriteSheet_10
       rect:
         serializedVersion: 2
