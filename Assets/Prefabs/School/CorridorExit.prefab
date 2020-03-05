@@ -588,12 +588,12 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_Lightmaps.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[4].lightmapOffsetScale.w
-      value: -0.0017557002
+      value: 0.3888693
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -649,7 +649,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Lightmaps.Array.data[4]
       value: 
-      objectReference: {fileID: 2800000, guid: bb607571d752d4f7dada0c855a7427c5, type: 3}
+      objectReference: {fileID: 2800000, guid: afe0f1fe272344aaa94c4b656bfef865, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_Lightmaps.Array.data[5]
@@ -659,7 +659,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Lightmaps.Array.data[6]
       value: 
-      objectReference: {fileID: 2800000, guid: ebf9bcb6f7e674bbeaa201cc2695be6c, type: 3}
+      objectReference: {fileID: 2800000, guid: bb607571d752d4f7dada0c855a7427c5, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[7].renderer
@@ -683,12 +683,12 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[7].lightmapOffsetScale.z
-      value: 0.85130715
+      value: 0.67161965
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[7].lightmapOffsetScale.w
-      value: 0.41907874
+      value: 0.89036965
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -703,12 +703,12 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[6].lightmapOffsetScale.z
-      value: 0.27295867
+      value: 0.7807712
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[6].lightmapOffsetScale.w
-      value: 0.8882171
+      value: 0.59174174
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -718,7 +718,7 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[8].lightmapIndex
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -733,12 +733,12 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[8].lightmapOffsetScale.z
-      value: 0.945121
+      value: -0.00019153093
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[8].lightmapOffsetScale.w
-      value: -0.00019153093
+      value: 0.9655242
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -748,7 +748,7 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[9].lightmapIndex
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -763,12 +763,12 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[9].lightmapOffsetScale.z
-      value: 0.945121
+      value: 0.31230846
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[9].lightmapOffsetScale.w
-      value: 0.23112457
+      value: 0.9655242
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -793,12 +793,12 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[10].lightmapOffsetScale.z
-      value: 0.27295867
+      value: 0.7807712
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[10].lightmapOffsetScale.w
-      value: 0.79599655
+      value: 0.49952117
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -808,7 +808,7 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[11].lightmapIndex
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -823,12 +823,12 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[11].lightmapOffsetScale.z
-      value: 0.77318215
+      value: 0.89036965
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[11].lightmapOffsetScale.w
-      value: 0.41907874
+      value: 0.918913
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -838,7 +838,7 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[12].lightmapIndex
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -853,12 +853,12 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[12].lightmapOffsetScale.z
-      value: 0.8904335
+      value: 0.820121
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[12].lightmapOffsetScale.w
-      value: 0.5923349
+      value: 0.9655242
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -883,12 +883,12 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[13].lightmapOffsetScale.z
-      value: 0.9529335
+      value: 0.8435585
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[13].lightmapOffsetScale.w
-      value: 0.7311246
+      value: 0.6842496
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -918,7 +918,7 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[15].lightmapIndex
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -933,18 +933,18 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[15].lightmapOffsetScale.z
-      value: 0.8904335
+      value: 0.695121
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[15].lightmapOffsetScale.w
-      value: 0.5460717
+      value: 0.9655242
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_Lightmaps.Array.data[7]
       value: 
-      objectReference: {fileID: 2800000, guid: 63cfd529a507e49e38fb58da798d4dd4, type: 3}
+      objectReference: {fileID: 2800000, guid: ebf9bcb6f7e674bbeaa201cc2695be6c, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[4].lightmapOffsetScale.x
