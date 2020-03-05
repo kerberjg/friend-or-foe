@@ -1124,9 +1124,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   corridorPrefabs:
+  - {fileID: 0}
+  - {fileID: 8146613097787330007, guid: 6a6d6618814164deea883249f2bc94c5, type: 3}
+  - {fileID: 9035505932092906465, guid: a23d1fa4128eb4c51bc7f7b5ca19d139, type: 3}
   - {fileID: 8118306629713441163, guid: 976051e672629491db21079e021dba6e, type: 3}
   - {fileID: 5708397104762633554, guid: 1aa4ff5315b8e41c185780838b3df1c6, type: 3}
-  - {fileID: 9035505932092906465, guid: a23d1fa4128eb4c51bc7f7b5ca19d139, type: 3}
   - {fileID: 9050932015384104413, guid: b5b8b45caaec548ef918e50e47e2ca45, type: 3}
   corridorPrev: {fileID: 0}
   corridorCurrent: {fileID: 0}
