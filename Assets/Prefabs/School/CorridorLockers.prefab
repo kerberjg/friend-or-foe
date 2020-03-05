@@ -1313,32 +1313,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Lightmaps.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: 1b59abe2162074ba795b8082d4a95671, type: 3}
+      objectReference: {fileID: 2800000, guid: 279f07730b1024af192c10992e8f5f55, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_Lightmaps.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: 565a3d30a652f460e8c9285885811ee4, type: 3}
+      objectReference: {fileID: 2800000, guid: a7a31c1b695ef47e49883fdadd3a544e, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_Lightmaps.Array.data[2]
       value: 
-      objectReference: {fileID: 2800000, guid: e8135773aee144974a755d2aadcd5aab, type: 3}
+      objectReference: {fileID: 2800000, guid: 7c9e7d02d22374d4089ae916737cc9e1, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_Lightmaps.Array.data[4]
       value: 
-      objectReference: {fileID: 2800000, guid: 04d53b8900b8342b89caffa083301caf, type: 3}
+      objectReference: {fileID: 2800000, guid: ebf9bcb6f7e674bbeaa201cc2695be6c, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_Lightmaps.Array.data[5]
       value: 
-      objectReference: {fileID: 2800000, guid: 63cfd529a507e49e38fb58da798d4dd4, type: 3}
+      objectReference: {fileID: 2800000, guid: bb607571d752d4f7dada0c855a7427c5, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_Lightmaps.Array.data[6]
       value: 
-      objectReference: {fileID: 2800000, guid: 0f6c3e552ebf74dde97caec4c22fd57c, type: 3}
+      objectReference: {fileID: 2800000, guid: afe0f1fe272344aaa94c4b656bfef865, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_Lightmaps.Array.data[7]
@@ -1408,7 +1408,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Lightmaps.Array.data[3]
       value: 
-      objectReference: {fileID: 2800000, guid: ae4a1076ea0964cc2ab1f9c2634f7812, type: 3}
+      objectReference: {fileID: 2800000, guid: 11617eed310be4baf96937ecfb7e4096, type: 3}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[4].lightmapOffsetScale.x

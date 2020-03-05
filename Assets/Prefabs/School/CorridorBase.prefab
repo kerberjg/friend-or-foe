@@ -296,11 +296,11 @@ MonoBehaviour:
     lightmapIndex: 4
     lightmapOffsetScale: {x: 0.43288988, y: 0.43288988, z: -0.0017557002, w: 0.4982443}
   m_Lightmaps:
-  - {fileID: 2800000, guid: 89cbaefeafabd4a2a9faecfe1441614d, type: 3}
-  - {fileID: 2800000, guid: a7a31c1b695ef47e49883fdadd3a544e, type: 3}
-  - {fileID: 2800000, guid: d0e326857edcc4255bee2c52887d9ab6, type: 3}
-  - {fileID: 2800000, guid: f5f70604f4cab4006bd612297864e28a, type: 3}
+  - {fileID: 2800000, guid: 730ce635f039848c6b157a5d8c82d6bc, type: 3}
   - {fileID: 2800000, guid: 04d53b8900b8342b89caffa083301caf, type: 3}
+  - {fileID: 2800000, guid: f5f70604f4cab4006bd612297864e28a, type: 3}
+  - {fileID: 2800000, guid: 89cbaefeafabd4a2a9faecfe1441614d, type: 3}
+  - {fileID: 2800000, guid: ebf9bcb6f7e674bbeaa201cc2695be6c, type: 3}
 --- !u!1 &6155917929216205229
 GameObject:
   m_ObjectHideFlags: 0
