@@ -22,7 +22,7 @@ public class CorridorScroller : MonoBehaviour
     void Start()
     {
         corridorPrev = LoadNext();
-        corridorPrev.transform.position = scrollDir * elementLength;
+        if(corridorPrev) corridorPrev.transform.position = scrollDir * elementLength;
 
         corridorCurrent = LoadNext();
         corridorCurrent.transform.position = scrollDir * 0;
@@ -38,7 +38,7 @@ public class CorridorScroller : MonoBehaviour
         float scrollDelta = scrollSpeed * Time.deltaTime;
         scrollPos = scrollPos + scrollDelta;
 
-        corridorPrev.transform.Translate(scrollDir * scrollDelta);
+        if(corridorPrev) corridorPrev.transform.Translate(scrollDir * scrollDelta);
         corridorCurrent.transform.Translate(scrollDir * scrollDelta);
         corridorNext.transform.Translate(scrollDir * scrollDelta);
 
@@ -66,7 +66,13 @@ public class CorridorScroller : MonoBehaviour
             difficulty = index / corridorPrefabs.Length;
         }
 
-        GameObject segment = Instantiate(corridorPrefabs[index], new Vector3(elementLength, 0f, 0f), Quaternion.identity, this.transform);
+        GameObject prefab = corridorPrefabs[index];
+        if(!prefab) {
+            Debug.Log("Segment is null");
+            return null;
+        }
+
+        GameObject segment = Instantiate(prefab, new Vector3(elementLength, 0f, 0f), Quaternion.identity, this.transform);
         if (WaveSpawner.Instance != null)
         {
             WaveSpawner.Instance.FillSegment(segment, difficulty);
