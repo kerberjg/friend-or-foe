@@ -29,6 +29,8 @@ public class player_scr : MonoBehaviour
 
     public string foeTag = "Foe";
     public string friendTag = "Friend";
+    public float hitTime = 2.0f;
+    public float hiFiveTime = 2.0f;
 
     public GameObject roomScrollerObj;
 
@@ -36,6 +38,9 @@ public class player_scr : MonoBehaviour
     bool switchCharacter = false;
 
     Animator spriteAnimator;
+
+    float curHitTime = 2.0f;
+    float curHiFiveTime = 2.0f;
 
 
     // Start is called before the first frame update
@@ -47,7 +52,37 @@ public class player_scr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (curCharacter == Character.MOVING)
+        if (spriteAnimator.GetBool("DoHiFive") == true)
+        {
+            if (curHiFiveTime < hiFiveTime)
+            {
+                curHiFiveTime += Time.deltaTime;
+            }
+            else
+            {
+                spriteAnimator.SetBool("DoHiFive", false);
+                if (curCharacter == Character.MOVING)
+                {
+                    roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 3.0f;
+                }
+            }
+        }
+        else if (spriteAnimator.GetBool("IsHit") == true)
+        {
+            if (curHitTime < hitTime)
+            {
+                curHitTime += Time.deltaTime;
+            }
+            else
+            {
+                spriteAnimator.SetBool("IsHit", false);
+                if (curCharacter == Character.MOVING)
+                {
+                    roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 3.0f;
+                }
+            }
+        }
+        else if (curCharacter == Character.MOVING)
         {
             if (switchCharacter)
             {
@@ -115,7 +150,7 @@ public class player_scr : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(switchChar_k) && switchCharacter == false)
+        if (Input.GetKeyDown(switchChar_k) && switchCharacter == false && spriteAnimator.GetBool("IsHit") == false && spriteAnimator.GetBool("DoHiFive") == false)
         {
             if (curCharacter == Character.MOVING)
             {
@@ -133,15 +168,17 @@ public class player_scr : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         {
-            if (other.gameObject.tag == foeTag)
+            if (other.CompareTag(foeTag))
             {
-                // TEST CODE. CHANGE TO DAMAGE AND HIT ANIMATION
-                gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f);
+                roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
+                spriteAnimator.SetBool("IsHit", true);
+                curHitTime = 0.0f;
             }
-            else if (other.gameObject.tag == friendTag)
+            else if (other.CompareTag(friendTag))
             {
-                // TEST CODE. CHANGE TO HI-FIVE ANIMATION
-                gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(0.0f, 0.0f, 1.0f);
+                roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
+                spriteAnimator.SetBool("DoHiFive", true);
+                curHiFiveTime = 0.0f;
             }
         }
     }
