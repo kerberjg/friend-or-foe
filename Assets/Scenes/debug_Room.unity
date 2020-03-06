@@ -616,6 +616,7 @@ MonoBehaviour:
   yMax: 0.8
   foeTag: Foe
   friendTag: Friend
+  roomScrollerObj: {fileID: 979019736}
 --- !u!1 &758630017
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,8 @@ public class player_scr : MonoBehaviour
     public string foeTag = "Foe";
     public string friendTag = "Friend";
 
+    public GameObject roomScrollerObj;
+
     Character curCharacter = Character.MOVING;
     bool switchCharacter = false;
 
@@ -50,6 +52,7 @@ public class player_scr : MonoBehaviour
             if (switchCharacter)
             {
                 spriteAnimator.SetBool("DoSwitch", false);
+                roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 3.0f;
 
                 switchCharacter = false;
             }
@@ -106,6 +109,7 @@ public class player_scr : MonoBehaviour
             if (switchCharacter)
             {
                 spriteAnimator.SetBool("DoSwitch", false);
+                roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
 
                 switchCharacter = false;
             }
