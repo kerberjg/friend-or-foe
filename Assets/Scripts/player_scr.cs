@@ -44,7 +44,7 @@ public class player_scr : MonoBehaviour
     float curHiFiveTime = 2.0f;
 
     public Image fill;
-    float maxHealth = 100.0f;
+    readonly float maxHealth = 100.0f;
     float health = 0.0f;
     [Range(0.0f, 100.0f)]
     public float friendHealthIncrease = 4.0f;
@@ -72,7 +72,7 @@ public class player_scr : MonoBehaviour
             else
             {
                 spriteAnimator.SetBool("DoHiFive", false);
-                if (curCharacter == Character.MOVING)
+                if (curCharacter == Character.MOVING && curHitTime >= hitTime)
                 {
                     roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 3.0f;
                 }
@@ -87,7 +87,7 @@ public class player_scr : MonoBehaviour
             else
             {
                 spriteAnimator.SetBool("IsHit", false);
-                if (curCharacter == Character.MOVING)
+                if (curCharacter == Character.MOVING && curHiFiveTime >= hiFiveTime)
                 {
                     roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 3.0f;
                 }
@@ -175,10 +175,6 @@ public class player_scr : MonoBehaviour
             spriteAnimator.SetBool("DoSwitch", true);
         }
 
-        if (health < maxHealth)
-        {
-            health -= constantHealthDecrease;
-        }
         if (health < 0.0f)
         {
             health = 0.0f;
@@ -190,7 +186,7 @@ public class player_scr : MonoBehaviour
     {
         if (health < maxHealth)
         {
-            if (collision.CompareTag(foeTag))
+            if (collision.CompareTag(foeTag) && spriteAnimator.GetBool("DoHiFive") == false && spriteAnimator.GetBool("IsHit") == false)
             {
                 roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
                 spriteAnimator.SetBool("IsHit", true);
