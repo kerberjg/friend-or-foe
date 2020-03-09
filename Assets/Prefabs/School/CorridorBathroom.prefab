@@ -180,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[5].lightmapOffsetScale.z
-      value: -0.0006703583
+      value: 0.47589216
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
@@ -210,7 +210,7 @@ PrefabInstance:
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
       propertyPath: m_RendererInfo.Array.data[6].lightmapOffsetScale.z
-      value: 0.17901714
+      value: 0.6555796
       objectReference: {fileID: 0}
     - target: {fileID: 8731065941182021732, guid: 1aa4ff5315b8e41c185780838b3df1c6,
         type: 3}
