@@ -423,53 +423,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325473903}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &738647660 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4757514626232293450, guid: ab0d5c2d38cf7a840a1a8b3a7b02d22a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1994838432}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &738647661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738647660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a10d933c7512e4cb74ae7cdd81bf9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fill: {fileID: 850452257}
-  health: 100
-  maxHealth: 100
---- !u!114 &738647663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738647660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f1f02b955505542acfd9fe58a4671a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  up_k: 273
-  down_k: 274
-  left_k: 276
-  right_k: 275
-  switchChar_k: 122
-  highFive_k: 120
-  speed: 0.03
-  switchSpeed: 0.03
-  xMin: -10
-  xMax: -5
-  yMin: -0.8
-  yMax: 0.8
-  foeTag: Foe
-  friendTag: Friend
 --- !u!1 &536459091
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +569,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671671644}
   m_CullTransparentMesh: 0
+--- !u!1 &738647660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4757514626232293450, guid: ab0d5c2d38cf7a840a1a8b3a7b02d22a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1994838432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &738647661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738647660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a10d933c7512e4cb74ae7cdd81bf9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fill: {fileID: 850452257}
+  health: 100
+  maxHealth: 100
+--- !u!114 &738647663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738647660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f1f02b955505542acfd9fe58a4671a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up_k: 273
+  down_k: 274
+  left_k: 276
+  right_k: 275
+  switchChar_k: 122
+  highFive_k: 120
+  speed: 0.03
+  switchSpeed: 0.03
+  xMin: -10
+  xMax: -5
+  yMin: -0.8
+  yMax: 0.8
+  foeTag: Foe
+  friendTag: Friend
 --- !u!1 &758630017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   corridorPrev: {fileID: 0}
   corridorCurrent: {fileID: 0}
   corridorNext: {fileID: 0}
-  random: 1
+  random: 0
   elementLength: 10
   scrollSpeed: 3
   scrollDir: {x: -1, y: 0, z: 0}
@@ -1265,7 +1265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -196}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 150, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1213358120
