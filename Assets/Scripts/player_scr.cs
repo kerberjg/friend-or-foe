@@ -165,15 +165,15 @@ public class player_scr : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag(foeTag))
+        if (collision.CompareTag(foeTag))
         {
             roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
             spriteAnimator.SetBool("IsHit", true);
             curHitTime = 0.0f;
         }
-        else if (other.CompareTag(friendTag))
+        else if (collision.CompareTag(friendTag))
         {
             roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
             spriteAnimator.SetBool("DoHiFive", true);
