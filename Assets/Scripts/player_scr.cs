@@ -192,6 +192,7 @@ public class player_scr : MonoBehaviour
                 spriteAnimator.SetBool("IsHit", true);
                 curHitTime = 0.0f;
                 health -= foeHealthDecrease;
+                collision.tag = "FoeDone";
             }
             else if (collision.CompareTag(friendTag))
             {
@@ -199,6 +200,7 @@ public class player_scr : MonoBehaviour
                 spriteAnimator.SetBool("DoHiFive", true);
                 curHiFiveTime = 0.0f;
                 health += friendHealthIncrease;
+                collision.tag = "FriendDone";
             }
         }
     }
