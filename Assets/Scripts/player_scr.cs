@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player_scr : MonoBehaviour
 {
@@ -41,6 +42,16 @@ public class player_scr : MonoBehaviour
 
     float curHitTime = 2.0f;
     float curHiFiveTime = 2.0f;
+
+    public Image fill;
+    float maxHealth = 100.0f;
+    float health = 0.0f;
+    [Range(0.0f, 100.0f)]
+    public float friendHealthIncrease = 4.0f;
+    [Range(0.0f, 100.0f)]
+    public float foeHealthDecrease = 3.0f;
+    [Range(0.0f, 100.0f)]
+    public float constantHealthDecrease = 0.1f;
 
 
     // Start is called before the first frame update
@@ -163,6 +174,9 @@ public class player_scr : MonoBehaviour
             switchCharacter = true;
             spriteAnimator.SetBool("DoSwitch", true);
         }
+
+        health -= 0.1f * Time.deltaTime;
+        fill.fillAmount = health / maxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -172,12 +186,14 @@ public class player_scr : MonoBehaviour
             roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
             spriteAnimator.SetBool("IsHit", true);
             curHitTime = 0.0f;
+            health -= foeHealthDecrease;
         }
         else if (collision.CompareTag(friendTag))
         {
             roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
             spriteAnimator.SetBool("DoHiFive", true);
             curHiFiveTime = 0.0f;
+            health += friendHealthIncrease;
         }
     }
 }
