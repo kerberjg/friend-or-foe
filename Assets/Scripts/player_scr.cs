@@ -175,25 +175,35 @@ public class player_scr : MonoBehaviour
             spriteAnimator.SetBool("DoSwitch", true);
         }
 
-        health -= 0.1f * Time.deltaTime;
+        if (health < maxHealth)
+        {
+            health -= constantHealthDecrease;
+        }
+        if (health < 0.0f)
+        {
+            health = 0.0f;
+        }
         fill.fillAmount = health / maxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(foeTag))
+        if (health < maxHealth)
         {
-            roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
-            spriteAnimator.SetBool("IsHit", true);
-            curHitTime = 0.0f;
-            health -= foeHealthDecrease;
-        }
-        else if (collision.CompareTag(friendTag))
-        {
-            roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
-            spriteAnimator.SetBool("DoHiFive", true);
-            curHiFiveTime = 0.0f;
-            health += friendHealthIncrease;
+            if (collision.CompareTag(foeTag))
+            {
+                roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
+                spriteAnimator.SetBool("IsHit", true);
+                curHitTime = 0.0f;
+                health -= foeHealthDecrease;
+            }
+            else if (collision.CompareTag(friendTag))
+            {
+                roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
+                spriteAnimator.SetBool("DoHiFive", true);
+                curHiFiveTime = 0.0f;
+                health += friendHealthIncrease;
+            }
         }
     }
 }
