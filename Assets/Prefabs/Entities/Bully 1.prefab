@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7982295072578023073}
   - component: {fileID: 8255406331961017245}
   - component: {fileID: 4461649379370921794}
-  - component: {fileID: 3354143707269767735}
-  - component: {fileID: 3131699580546405721}
+  - component: {fileID: 7208651755735770363}
+  - component: {fileID: 4680387331099109015}
+  - component: {fileID: 1750373509890447622}
   m_Layer: 0
   m_Name: Bully 1
   m_TagString: Foe
@@ -105,37 +106,56 @@ MonoBehaviour:
   bullyDistance: 0.5
   neutralSprite: {fileID: -2174004845037451531, guid: 6fc2d8a0f2d2dff46b9c2bb8fa8e0ff0,
     type: 3}
-  neutralMaterial: {fileID: 0}
+  neutralMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   bullySprite: {fileID: -8627585488664789676, guid: 6fc2d8a0f2d2dff46b9c2bb8fa8e0ff0,
     type: 3}
-  bullyMaterial: {fileID: 0}
---- !u!136 &3354143707269767735
-CapsuleCollider:
+  bullyMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!58 &7208651755735770363
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7661097217112283009}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.35
-  m_Height: 1.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.75, z: 0}
---- !u!54 &3131699580546405721
-Rigidbody:
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!50 &4680387331099109015
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7661097217112283009}
-  serializedVersion: 2
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 112
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1750373509890447622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7661097217112283009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5470417bbecbb6d4e9990c5d9b7022e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

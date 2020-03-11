@@ -65,6 +65,7 @@ MonoBehaviour:
   hiFiveTime: 2
   roomScrollerObj: {fileID: 0}
   fill: {fileID: 0}
+  health: 0
   friendHealthIncrease: 4
   foeHealthDecrease: 3
   constantHealthDecrease: 0.002
