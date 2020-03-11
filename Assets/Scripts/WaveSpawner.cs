@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -11,6 +10,10 @@ public class WaveSpawner : MonoBehaviour
     private int maxCount = 5;
     private int numberOfSpawnedBullies = 0;
     private int maxNumberOfSpawnedBullies = 0;
+    private int numberOfBulliesToShowFace = 0;
+    private int maxNumberOfBulliesToShowFace = 0;
+    private int numberOfNonBulliesToShowFace = 0;
+    private int maxNumberOfNonBulliesToShowFace = 0;
 
     [Header("WaveSettings")]
     public GameObject bullyPrefab;
@@ -20,6 +23,7 @@ public class WaveSpawner : MonoBehaviour
 
     List<Vector3> availableSpawnPositions;
 
+    SanityBarTest sanityBar;
 
     // singleton
     private static WaveSpawner instance;
@@ -43,6 +47,8 @@ public class WaveSpawner : MonoBehaviour
             instance = this;
             availableSpawnPositions = new List<Vector3>();
         }
+
+        sanityBar = GameObject.Find("Player").GetComponent<SanityBarTest>();
     }
 
     void OnDisable()
@@ -57,6 +63,10 @@ public class WaveSpawner : MonoBehaviour
         int count = Random.Range(minCount, maxCount);
         numberOfSpawnedBullies = 0;
         maxNumberOfSpawnedBullies = Mathf.RoundToInt(bullyProbabilityPercentage * count * 0.01f);
+        numberOfBulliesToShowFace = 0;
+        maxNumberOfBulliesToShowFace = Mathf.RoundToInt(maxNumberOfSpawnedBullies * (sanityBar.health - 5.0f) * 0.01f);
+        numberOfNonBulliesToShowFace = 0;
+        maxNumberOfNonBulliesToShowFace = Mathf.RoundToInt((count - maxNumberOfBulliesToShowFace) * (sanityBar.health - 5.0f) * 0.01f);
 
         // calculate spawning positions and add them to a list to prevent spawning at the same position.
         SetAvailableSpawnPositions(segment);
@@ -76,11 +86,29 @@ public class WaveSpawner : MonoBehaviour
         if (numberOfSpawnedBullies < maxNumberOfSpawnedBullies)
         {
             GameObject bully = GameObject.Instantiate(bullyPrefab, position, Quaternion.Euler(90.0f, 0.0f, 0.0f), parent.transform);
+            if (numberOfBulliesToShowFace < maxNumberOfBulliesToShowFace)
+            {
+                bully.GetComponent<Bully>().faceState = Bully.FaceState.SHOW_REAL_FACE;
+                numberOfBulliesToShowFace++;
+            }
+            else
+            {
+                bully.GetComponent<Bully>().faceState = Bully.FaceState.DONT_SHOW_REAL_FACE;
+            }
             numberOfSpawnedBullies++;
         }
         else
         {
             GameObject nonBully = GameObject.Instantiate(nonBullyPrefab, position, Quaternion.Euler(90.0f, 0.0f, 0.0f), parent.transform);
+            if (numberOfNonBulliesToShowFace < maxNumberOfNonBulliesToShowFace)
+            {
+                nonBully.GetComponent<NonBully>().faceState = NonBully.FaceState.SHOW_REAL_FACE;
+                numberOfNonBulliesToShowFace++;
+            }
+            else
+            {
+                nonBully.GetComponent<NonBully>().faceState = NonBully.FaceState.DONT_SHOW_REAL_FACE;
+            }
         }
     }
 
@@ -89,7 +117,7 @@ public class WaveSpawner : MonoBehaviour
         availableSpawnPositions.Clear();
         MeshRenderer floorMesh = segment.transform.Find("Floor").GetComponent<MeshRenderer>();
 
-        float xMin = floorMesh.bounds.min.x + 0.2f;
+        float xMin = floorMesh.bounds.min.x + 5.0f;
         float xMax = floorMesh.bounds.max.x - 0.2f;
         float yMin = floorMesh.bounds.min.y + 0.2f;
         float yMax = floorMesh.bounds.max.y - 0.2f;

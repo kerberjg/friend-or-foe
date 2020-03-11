@@ -167,17 +167,18 @@ public class player_scr : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(foeTag))
-        {
-            roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
-            spriteAnimator.SetBool("IsHit", true);
-            curHitTime = 0.0f;
-        }
-        else if (other.CompareTag(friendTag))
+        if (other.CompareTag(friendTag))
         {
             roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
             spriteAnimator.SetBool("DoHiFive", true);
             curHiFiveTime = 0.0f;
         }
+        else if (other.CompareTag(foeTag))
+        {
+            roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
+            spriteAnimator.SetBool("IsHit", true);
+            curHitTime = 0.0f;
+        }
+        
     }
 }
