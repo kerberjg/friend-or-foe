@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fill: {fileID: 850452257}
-  health: 100
+  health: 50
   maxHealth: 100
 --- !u!114 &738647663
 MonoBehaviour:
@@ -616,6 +616,9 @@ MonoBehaviour:
   yMax: 0.8
   foeTag: Foe
   friendTag: Friend
+  hitTime: 2
+  hiFiveTime: 2
+  roomScrollerObj: {fileID: 979019736}
 --- !u!1 &758630017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2457,9 +2460,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minCount: 1
   maxCount: 6
-  bullyPrefab: {fileID: 3457257070041625239, guid: 4ac69eca677e9194380182daba8bbe65,
+  bullyPrefab: {fileID: 7661097217112283009, guid: d2a2398fc08bfc943b065d6bba30bb29,
     type: 3}
-  nonBullyPrefab: {fileID: 2881126244258970117, guid: 49c44071b003bba49a87a91fddabaa4e,
+  nonBullyPrefab: {fileID: 7493814814873279528, guid: 334711053794ee84b8fa158bcd29aea4,
     type: 3}
   bullyProbabilityPercentage: 30
 --- !u!4 &1884190661
@@ -2623,6 +2626,11 @@ PrefabInstance:
     - target: {fileID: 4757514626232293450, guid: ab0d5c2d38cf7a840a1a8b3a7b02d22a,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757514626232293450, guid: ab0d5c2d38cf7a840a1a8b3a7b02d22a,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4757514626232293451, guid: ab0d5c2d38cf7a840a1a8b3a7b02d22a,
