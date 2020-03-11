@@ -15,6 +15,6 @@ public class layerOrder_scr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mSpriteRenderer.sortingOrder = Mathf.FloorToInt(-transform.position.z * 1000.0f);
+        mSpriteRenderer.sortingOrder = Mathf.FloorToInt(transform.position.y * 1000.0f);
     }
 }
