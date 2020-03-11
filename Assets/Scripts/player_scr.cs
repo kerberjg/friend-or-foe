@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player_scr : MonoBehaviour
 {
@@ -42,6 +43,16 @@ public class player_scr : MonoBehaviour
     float curHitTime = 2.0f;
     float curHiFiveTime = 2.0f;
 
+    public Image fill;
+    readonly float maxHealth = 100.0f;
+    float health = 0.0f;
+    [Range(0.0f, 100.0f)]
+    public float friendHealthIncrease = 4.0f;
+    [Range(0.0f, 100.0f)]
+    public float foeHealthDecrease = 3.0f;
+    [Range(0.0f, 100.0f)]
+    public float constantHealthDecrease = 0.1f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +72,7 @@ public class player_scr : MonoBehaviour
             else
             {
                 spriteAnimator.SetBool("DoHiFive", false);
-                if (curCharacter == Character.MOVING)
+                if (curCharacter == Character.MOVING && curHitTime >= hitTime)
                 {
                     roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 3.0f;
                 }
@@ -76,7 +87,7 @@ public class player_scr : MonoBehaviour
             else
             {
                 spriteAnimator.SetBool("IsHit", false);
-                if (curCharacter == Character.MOVING)
+                if (curCharacter == Character.MOVING && curHiFiveTime >= hiFiveTime)
                 {
                     roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 3.0f;
                 }
@@ -163,22 +174,34 @@ public class player_scr : MonoBehaviour
             switchCharacter = true;
             spriteAnimator.SetBool("DoSwitch", true);
         }
+
+        if (health < 0.0f)
+        {
+            health = 0.0f;
+        }
+        fill.fillAmount = health / maxHealth;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag(friendTag))
+        if (health < maxHealth)
         {
-            roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
-            spriteAnimator.SetBool("DoHiFive", true);
-            curHiFiveTime = 0.0f;
+            if (collision.CompareTag(foeTag) && spriteAnimator.GetBool("DoHiFive") == false && spriteAnimator.GetBool("IsHit") == false)
+            {
+                roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
+                spriteAnimator.SetBool("IsHit", true);
+                curHitTime = 0.0f;
+                health -= foeHealthDecrease;
+                collision.tag = "FoeDone";
+            }
+            else if (collision.CompareTag(friendTag))
+            {
+                roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
+                spriteAnimator.SetBool("DoHiFive", true);
+                curHiFiveTime = 0.0f;
+                health += friendHealthIncrease;
+                collision.tag = "FriendDone";
+            }
         }
-        else if (other.CompareTag(foeTag))
-        {
-            roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
-            spriteAnimator.SetBool("IsHit", true);
-            curHitTime = 0.0f;
-        }
-        
     }
 }
