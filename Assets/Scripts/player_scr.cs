@@ -97,7 +97,6 @@ public class player_scr : MonoBehaviour
         {
             if (switchCharacter)
             {
-                spriteAnimator.SetBool("DoSwitch", false);
                 roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 3.0f;
 
                 switchCharacter = false;
@@ -154,7 +153,6 @@ public class player_scr : MonoBehaviour
         {
             if (switchCharacter)
             {
-                spriteAnimator.SetBool("DoSwitch", false);
                 roomScrollerObj.GetComponent<CorridorScroller>().scrollSpeed = 0.0f;
 
                 switchCharacter = false;
@@ -166,13 +164,14 @@ public class player_scr : MonoBehaviour
             if (curCharacter == Character.MOVING)
             {
                 curCharacter = Character.SEEING;
+                spriteAnimator.SetBool("DoSwitch", true);
             }
             else if (curCharacter == Character.SEEING)
             {
                 curCharacter = Character.MOVING;
+                spriteAnimator.SetBool("DoSwitch", false);
             }
             switchCharacter = true;
-            spriteAnimator.SetBool("DoSwitch", true);
         }
 
         if (health < 0.0f)
