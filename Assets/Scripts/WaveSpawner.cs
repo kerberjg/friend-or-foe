@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
 
     List<Vector3> availableSpawnPositions;
 
-    SanityBarTest sanityBar;
+    player_scr playerScript;
 
     // singleton
     private static WaveSpawner instance;
@@ -48,7 +48,7 @@ public class WaveSpawner : MonoBehaviour
             availableSpawnPositions = new List<Vector3>();
         }
 
-        sanityBar = GameObject.Find("Player").GetComponent<SanityBarTest>();
+        playerScript = GameObject.Find("Player").GetComponent<player_scr>();
     }
 
     void OnDisable()
@@ -64,9 +64,9 @@ public class WaveSpawner : MonoBehaviour
         numberOfSpawnedBullies = 0;
         maxNumberOfSpawnedBullies = Mathf.RoundToInt(bullyProbabilityPercentage * count * 0.01f);
         numberOfBulliesToShowFace = 0;
-        maxNumberOfBulliesToShowFace = Mathf.RoundToInt(maxNumberOfSpawnedBullies * (sanityBar.health - 5.0f) * 0.01f);
+        maxNumberOfBulliesToShowFace = Mathf.RoundToInt(maxNumberOfSpawnedBullies * (playerScript.health - 5.0f) * 0.01f);
         numberOfNonBulliesToShowFace = 0;
-        maxNumberOfNonBulliesToShowFace = Mathf.RoundToInt((count - maxNumberOfBulliesToShowFace) * (sanityBar.health - 5.0f) * 0.01f);
+        maxNumberOfNonBulliesToShowFace = Mathf.RoundToInt((count - maxNumberOfBulliesToShowFace) * (playerScript.health - 5.0f) * 0.01f);
 
         // calculate spawning positions and add them to a list to prevent spawning at the same position.
         SetAvailableSpawnPositions(segment);

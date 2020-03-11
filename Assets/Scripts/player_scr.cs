@@ -45,7 +45,7 @@ public class player_scr : MonoBehaviour
 
     public Image fill;
     readonly float maxHealth = 100.0f;
-    float health = 0.0f;
+    public float health = 0.0f;
     [Range(0.0f, 100.0f)]
     public float friendHealthIncrease = 4.0f;
     [Range(0.0f, 100.0f)]
