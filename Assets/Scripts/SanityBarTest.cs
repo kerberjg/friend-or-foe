@@ -12,7 +12,7 @@ public class SanityBarTest : MonoBehaviour
 
     private void Start()
     {
-        health = 100.0f;
+        //health = 0.0f;
         maxHealth = 100.0f;
     }
 

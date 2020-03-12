@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bully : MonoBehaviour
@@ -11,7 +10,13 @@ public class Bully : MonoBehaviour
         MOVETOWARDSTHEPLAYER,
         DODGED
     }
-        
+
+    public enum FaceState
+    {
+        SHOW_REAL_FACE,
+        DONT_SHOW_REAL_FACE
+    }
+
     private Vector3 direction;
     public bool detected = false;
 
@@ -21,9 +26,36 @@ public class Bully : MonoBehaviour
     [SerializeField]
     BullyState bullyState = BullyState.MOVINGWITHBACKGROUND;
 
-    public float speed = 3.0f;
+    public FaceState faceState = FaceState.DONT_SHOW_REAL_FACE;
+
+    public float speed = 1.0f;
+    public float moveTowardsPlayerDistance = 1.5f;
+    public float bullyDistance = 0.5f;
+
+    [Header("Neutral")]
+    public Sprite neutralSprite;
+    public Material neutralMaterial;
+
+    [Header("Bully")]
+    public Sprite bullySprite;
+    public Material bullyMaterial;
+
+    SpriteRenderer spriteRenderer;
+
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (faceState == FaceState.DONT_SHOW_REAL_FACE)
+        {
+            spriteRenderer.sprite = neutralSprite;
+            spriteRenderer.material = neutralMaterial;
+        }
+        else
+        {
+            spriteRenderer.sprite = bullySprite;
+            spriteRenderer.material = bullyMaterial;
+        }
+
         player = GameObject.Find("Player").transform;
         direction = Vector3.left;
         detected = false;
@@ -37,25 +69,27 @@ public class Bully : MonoBehaviour
         switch (bullyState)
         {
             case BullyState.MOVINGWITHBACKGROUND:
-                if(Vector3.Distance(transform.position, player.position) <= 4.0f || detected)
+                if (Vector3.Distance(transform.position, player.position) <= 4.0f || detected)
                 {
                     bullyState = BullyState.MOVETOWARDSTHEPLAYER;
                 }
                 break;
             case BullyState.TACKLE:
                 // play tackle animation or something.
-                //transform.position = Vector3.Lerp(transform.position, transform.position + direction, Time.deltaTime * tackleSpeed);
+                spriteRenderer.sprite = bullySprite;
+                spriteRenderer.material = bullyMaterial;
                 transform.position = Vector3.MoveTowards(transform.position, tacklePosition, Time.deltaTime * speed);
-                if (transform.position.x <= player.position.x - 0.5f)
+                if (transform.position.x <= player.position.x - bullyDistance)
                 {
                     transform.parent = parent;
                     bullyState = BullyState.DODGED;
                 }
                 break;
             case BullyState.MOVETOWARDSTHEPLAYER:
-                //direction = (player.position - transform.position).normalized;
+                spriteRenderer.sprite = bullySprite;
+                spriteRenderer.material = bullyMaterial;
                 transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * speed);
-                if (Vector3.Distance(transform.position, player.position) <= 1.5f)
+                if (Vector3.Distance(transform.position, player.position) <= moveTowardsPlayerDistance)
                 {
                     bullyState = BullyState.TACKLE;
                     direction = (player.position - transform.position).normalized * speed;
@@ -69,6 +103,22 @@ public class Bully : MonoBehaviour
             default:
                 bullyState = BullyState.MOVINGWITHBACKGROUND;
                 break;
+        }
+    }
+
+    IEnumerator MoveOutsideScreen()
+    {
+        yield return new WaitForSeconds(1.0f);
+        bullyState = BullyState.MOVINGWITHBACKGROUND;
+        transform.parent = parent;
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Play Some Animation.
+            StartCoroutine(MoveOutsideScreen());
         }
     }
 }
