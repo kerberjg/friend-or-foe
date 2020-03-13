@@ -8,7 +8,7 @@ public class Bully : MonoBehaviour
         MOVINGWITHBACKGROUND,
         TACKLE,
         MOVETOWARDSTHEPLAYER,
-        DODGED
+        PASSEDPLAYER
     }
 
     public enum FaceState
@@ -21,7 +21,6 @@ public class Bully : MonoBehaviour
     public bool detected = false;
 
     Transform player;
-    Transform parent;
     Vector3 tacklePosition = Vector3.zero;
     [SerializeField]
     BullyState bullyState = BullyState.MOVINGWITHBACKGROUND;
@@ -60,7 +59,6 @@ public class Bully : MonoBehaviour
         direction = Vector3.left;
         detected = false;
         bullyState = BullyState.MOVINGWITHBACKGROUND;
-        parent = transform.parent;
         speed = 3.0f;
     }
 
@@ -75,14 +73,12 @@ public class Bully : MonoBehaviour
                 }
                 break;
             case BullyState.TACKLE:
-                // play tackle animation or something.
                 spriteRenderer.sprite = bullySprite;
                 spriteRenderer.material = bullyMaterial;
                 transform.position = Vector3.MoveTowards(transform.position, tacklePosition, Time.deltaTime * speed);
                 if (transform.position.x <= player.position.x - bullyDistance)
                 {
-                    transform.parent = parent;
-                    bullyState = BullyState.DODGED;
+                    bullyState = BullyState.PASSEDPLAYER;
                 }
                 break;
             case BullyState.MOVETOWARDSTHEPLAYER:
@@ -91,14 +87,13 @@ public class Bully : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * speed);
                 if (Vector3.Distance(transform.position, player.position) <= moveTowardsPlayerDistance)
                 {
+                    Debug.Log("Switching");
                     bullyState = BullyState.TACKLE;
-                    direction = (player.position - transform.position).normalized * speed;
+                    direction = (player.position - transform.position)* 2.0f;
                     tacklePosition = player.position + direction;
-                    this.transform.parent = null;
                 }
                 break;
-            case BullyState.DODGED:
-                Destroy(this.gameObject);
+            case BullyState.PASSEDPLAYER:
                 break;
             default:
                 bullyState = BullyState.MOVINGWITHBACKGROUND;
@@ -106,19 +101,11 @@ public class Bully : MonoBehaviour
         }
     }
 
-    IEnumerator MoveOutsideScreen()
-    {
-        yield return new WaitForSeconds(1.0f);
-        bullyState = BullyState.MOVINGWITHBACKGROUND;
-        transform.parent = parent;
-    }
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             // Play Some Animation.
-            StartCoroutine(MoveOutsideScreen());
         }
     }
 }

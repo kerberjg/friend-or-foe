@@ -119,7 +119,7 @@ public class WaveSpawner : MonoBehaviour
 
         float xMin = floorMesh.bounds.min.x + 5.0f;
         float xMax = floorMesh.bounds.max.x - 0.2f;
-        float yMin = floorMesh.bounds.min.y + 0.2f;
+        float yMin = floorMesh.bounds.min.y + 1.0f;
         float yMax = floorMesh.bounds.max.y - 0.2f;
         float z = floorMesh.bounds.min.z;
         float offset = 0.5f;

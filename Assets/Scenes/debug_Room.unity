@@ -2516,6 +2516,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 738647662, guid: ab0d5c2d38cf7a840a1a8b3a7b02d22a, type: 3}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 738647663, guid: ab0d5c2d38cf7a840a1a8b3a7b02d22a, type: 3}
       propertyPath: roomScrollerObj
       value: 
